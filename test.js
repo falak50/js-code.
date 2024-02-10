@@ -1,23 +1,16 @@
-// let obj = {
-//     name:'falak',
-//     id: 123,
-//     arr: [1,2,3]
-// }
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName: function () {
+      return this.firstName + " " + this.lastName;
+    }
+}
 
-// for(const key in obj){
-//     const arr=obj[key];
-//     if (Array.isArray(arr)){
-//       for(const val of arr){
-//         console.log(`${val} falak`)
-//       }
-//     }
-// }
+const member = {
+    firstName: "Hege",
+    lastName: "Nilsen",
+}
 
-let person = {
-  firstName: 'John',
-  lastName: 'Doe'
-};
-
-person.firstName = 'Jane';
-
-console.log(person);
+let boundFullName = person.fullName.bind(member); // Bind fullName method to member object
+let fullName = boundFullName(); // Call the bound function
+console.log(fullName); // Output: Hege Nilsen
